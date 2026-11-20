@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 640" role="img" aria-label="Тихая площадка после удара">
+  <g id="environment">
+    <defs>
+      <linearGradient id="impact-wall" x2="0" y2="1"><stop stop-color="#41483f"/><stop offset="1" stop-color="#232622"/></linearGradient>
+      <linearGradient id="impact-floor" x2="0" y2="1"><stop stop-color="#716956"/><stop offset="1" stop-color="#36372f"/></linearGradient>
+      <radialGradient id="impact-lamp"><stop stop-color="#e4ca8e" stop-opacity=".32"/><stop offset="1" stop-color="#e4ca8e" stop-opacity="0"/></radialGradient>
+    </defs>
+    <g id="impact-background"><rect width="360" height="640" fill="url(#impact-wall)"/><path d="M0 0H360V292H0Z" fill="#252a25"/><path d="M0 285H360V640H0Z" fill="url(#impact-floor)"/><path d="M0 286H360" stroke="#171a17" stroke-width="7"/><path d="M20 18L31 0M332 245L359 217M12 490L48 462M302 354L345 329" stroke="#c5b99a" stroke-opacity=".2" stroke-width="2"/><ellipse cx="195" cy="120" rx="100" ry="90" fill="url(#impact-lamp)"/><path d="M185 43H205V61Q205 69 195 69Q185 69 185 61Z" fill="#ead9ad" stroke="#796e56" stroke-width="3"/><path d="M0 573L360 557" stroke="#20231f" stroke-width="5" opacity=".7"/></g>
+    <g id="dropped-bag" transform="translate(93 380) rotate(-9 74 58)" stroke="#1b1d18" stroke-width="6" stroke-linejoin="round">
+      <path d="M13 15Q17 5 29 5H123Q137 5 139 18L146 99Q147 113 132 116L19 126Q5 127 3 112L0 31Q-1 19 13 15Z" fill="#f1d21a"/>
+      <path d="M8 31L139 21M7 91L145 80" stroke="#b99e10" stroke-width="4"/>
+      <path d="M20 9L27 121M123 5L131 116" stroke="#252822" stroke-width="8"/>
+      <path d="M0 29L146 18M4 94L144 83" stroke="#252822" stroke-width="7"/>
+      <path d="M31 126Q35 145 56 141L112 136Q128 135 130 116" fill="none" stroke="#222520" stroke-width="6"/>
+      <path d="M-5 127Q70 149 157 122" fill="none" stroke="#151714" stroke-opacity=".5" stroke-width="11"/>
+    </g>
+    <g id="off-frame-figure" opacity=".95">
+      <path d="M340 348Q310 342 301 370L292 441Q296 465 330 471L374 455V351Z" fill="#1d221e" stroke="#131613" stroke-width="7"/>
+      <path d="M306 373L350 388M299 429L341 444" stroke="#b7b8a9" stroke-width="7"/>
+      <circle cx="326" cy="360" r="18" fill="#202522" stroke="#8e8d7a" stroke-width="4"/>
+    </g>
+    <path d="M0 180H360" stroke="#8b8977" stroke-opacity=".13" stroke-width="2"/>
+  </g>
+</svg>

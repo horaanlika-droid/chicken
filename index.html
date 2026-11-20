@@ -3,155 +3,143 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#11110f">
-  <meta name="description" content="ДРУЖБЫ, 18, КВ. 14 — концепция короткого stop-motion фильма о ночной доставке, лестнице и жёлтом кубе.">
-  <title>ДРУЖБЫ, 18, КВ. 14 — короткий метр</title>
+  <meta name="theme-color" content="#171816">
+  <meta name="description" content="CUTOUT CINEMA — управляемый конвейер для авторской 2D cut-out анимации.">
+  <title>CUTOUT CINEMA — Animation Studio</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="voiceover.css">
-  <link rel="stylesheet" href="animatic.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="wordmark" href="#top" aria-label="На начало">КИНО<span>·</span>ЦЕХ</a>
-    <span class="topbar-note">МИНИАТЮРА / 01</span>
-    <a class="top-link" href="#storyboard">СМОТРЕТЬ РАСКАДРОВКУ <span aria-hidden="true">↘</span></a>
+  <header class="app-header">
+    <a class="brand" href="#top" aria-label="CUTOUT CINEMA — начало">
+      <span class="brand-mark"><i></i><i></i><i></i></span>
+      <span class="brand-name">CUTOUT<span>CINEMA</span></span>
+      <span class="brand-version">PRODUCTION SYSTEM&nbsp; / &nbsp;SERIES 01</span>
+    </a>
+    <div class="project-name"><span class="status-dot"></span><span id="project-title">ДРУЖБЫ, 18, КВ. 14</span><span class="saved-label" id="save-status">СОХРАНЕНО</span></div>
+    <div class="header-actions">
+      <button class="quiet-button" id="new-project" type="button">НОВЫЙ</button>
+      <button class="quiet-button" id="import-project" type="button">ОТКРЫТЬ</button>
+      <button class="quiet-button" id="save-project" type="button">СОХРАНИТЬ JSON</button>
+      <button class="export-button" id="export-video" type="button"><span>●</span> ЭКСПОРТ WEBM</button>
+      <input id="project-file" type="file" accept="application/json,.json" hidden>
+      <input id="audio-file" type="file" accept="audio/*" hidden>
+    </div>
   </header>
 
-  <main id="top">
-    <section class="hero" aria-labelledby="film-title">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="live-dot"></span> КОРОТКИЙ МЕТР · STOP-MOTION</p>
-        <h1 id="film-title">ДРУЖБЫ,<br>18, КВ. <em>14</em></h1>
-        <p class="hero-deck">Одна доставка. Не тот подъезд.<br>Лестница, которая не заканчивается.</p>
-        <div class="hero-meta">
-          <div><span>ФОРМАТ</span><strong>9:16 · ВЕРТИКАЛЬ</strong></div>
-          <div><span>ХРОНОМЕТРАЖ</span><strong>01:20</strong></div>
-          <div><span>ЗВУК</span><strong>ВНУТРЕННИЙ МОНОЛОГ</strong></div>
+  <main class="studio" id="top">
+    <aside class="asset-sidebar" aria-label="Библиотека ассетов">
+      <div class="panel-title"><span>БИБЛИОТЕКА</span><button id="add-asset" class="plus-button" aria-label="Добавить ассет" type="button">+</button></div>
+      <div class="asset-search"><span>⌕</span><input aria-label="Поиск по библиотеке" placeholder="Найти ассет"></div>
+      <section class="library-group">
+        <div class="group-label">ПЕРСОНАЖИ <span>01</span></div>
+        <button class="asset-item selected" type="button" data-asset="courier"><span class="asset-thumb courier-thumb"><i></i><b></b></span><span><strong>Курьер</strong><small>Риг · 12 слоёв</small></span><b class="asset-menu">···</b></button>
+      </section>
+      <section class="library-group">
+        <div class="group-label">ЛОКАЦИИ <span>01</span></div>
+        <button class="asset-item" id="location-entrance" type="button"><span class="asset-thumb location-thumb"><i></i></span><span><strong>Подъезд / ночь</strong><small>Фон · 4 слоя</small></span><b class="asset-menu">···</b></button>
+        <button class="asset-item" id="location-stairs" type="button"><span class="asset-thumb stairs-thumb"><i></i></span><span><strong>Лестничный пролёт</strong><small>Фон · 6 слоёв</small></span><b class="asset-menu">···</b></button>
+      </section>
+      <section class="library-group">
+        <div class="group-label">ДВИЖЕНИЯ <span>05</span></div>
+        <button class="motion-item active" type="button" data-motion="idle"><span class="motion-icon idle-icon">◉</span><span>Покой</span><kbd>01</kbd></button>
+        <button class="motion-item" type="button" data-motion="walk"><span class="motion-icon walk-icon">↗</span><span>Шаговый цикл</span><kbd>02</kbd></button>
+        <button class="motion-item" type="button" data-motion="turn"><span class="motion-icon">↶</span><span>Поворот головы</span><kbd>03</kbd></button>
+        <button class="motion-item" type="button" data-motion="gesture"><span class="motion-icon">↗</span><span>Жест рукой</span><kbd>04</kbd></button>
+        <button class="motion-item" type="button" data-motion="press"><span class="motion-icon">●</span><span>Нажатие</span><kbd>05</kbd></button>
+      </section>
+      <section class="library-group episode-library">
+        <div class="group-label">ЭПИЗОД 01 <span>7 КАДРОВ</span></div>
+        <div class="episode-shot-list" id="episode-shot-list"></div>
+      </section>
+      <div class="sidebar-bottom"><span class="storage-dot"></span><span>ЭПИЗОД · 01</span><button type="button" aria-label="Настройки библиотеки">⚙</button></div>
+    </aside>
+
+    <section class="workspace" aria-label="Рабочая сцена">
+      <div class="workspace-topbar">
+        <div class="scene-breadcrumb"><span>ЭПИЗОД 01</span><b>/</b><strong id="scene-title">SHOT 01 — ДОМОФОН</strong><b>/</b><span>КАМЕРА A</span></div>
+        <div class="workspace-actions"><span class="aspect-label">9:16</span><button id="toggle-guides" class="icon-button active" type="button" aria-label="Показать направляющие" title="Направляющие">⌗</button><button class="icon-button" id="fullscreen" type="button" aria-label="На весь экран" title="На весь экран">⛶</button></div>
+      </div>
+      <div class="episode-strip"><span id="episode-shot-id">01 / 07</span><strong id="episode-shot-title">Домофон</strong><span id="episode-shot-range">00:00—00:10</span><p id="episode-shot-description">POV: кнопка домофона молчит.</p></div>
+      <div class="stage-area" id="stage-area">
+        <div class="stage-ruler ruler-top"><span>0</span><span>90</span><span>180</span><span>270</span><span>360</span></div>
+        <div class="stage-shell" id="stage-shell">
+          <svg id="stage" viewBox="0 0 360 640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Предпросмотр 2D cut-out сцены">
+            <defs>
+              <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .13"/></feComponentTransfer><feBlend in="SourceGraphic" mode="soft-light"/></filter>
+              <filter id="shadow" x="-50%" y="-30%" width="200%" height="200%"><feGaussianBlur stdDeviation="8"/></filter>
+            </defs>
+            <g id="camera-rig">
+              <g id="environment"></g>
+              <ellipse id="character-shadow" cx="235" cy="520" rx="61" ry="13" fill="#080a08" opacity=".5" filter="url(#shadow)"/>
+              <g id="puppet-position" transform="translate(232 522) scale(.78)"></g>
+            </g>
+            <rect id="grain-overlay" width="360" height="640" fill="transparent" filter="url(#grain)" opacity=".13" pointer-events="none"/>
+            <rect id="end-black" width="360" height="640" fill="#070807" opacity="0" pointer-events="none"/>
+            <g class="safe-guides" id="safe-guides" pointer-events="none"><rect x="18" y="34" width="324" height="572" fill="none" stroke="#f3dc61" stroke-opacity=".37" stroke-dasharray="4 6"/><path d="M180 0V640M0 320H360" stroke="#f3dc61" stroke-opacity=".14" stroke-dasharray="5 8"/></g>
+            <rect x="1" y="1" width="358" height="638" fill="none" stroke="#d9d0b7" stroke-opacity=".25" stroke-width="2"/>
+          </svg>
+          <div class="stage-overlay"><span><i></i> LIVE PREVIEW</span><span>24 FPS</span></div>
+          <div class="stage-corner">CUTOUT CINEMA&nbsp; · &nbsp;9:16</div>
         </div>
-        <a class="round-link" href="#storyboard"><span>ЛИСТАТЬ ПО КАДРАМ</span><b aria-hidden="true">↓</b></a>
+        <div class="stage-ruler ruler-side"><span>0</span><span>160</span><span>320</span><span>480</span><span>640</span></div>
       </div>
-      <div class="hero-art" role="img" aria-label="Курьер с большой жёлтой термосумкой поднимается по старой бетонной лестнице">
-        <div class="art-stamp">КАДР 02 <span>·</span> 00:14</div>
-        <div class="art-caption"><span>ОДИН ПОДЪЕЗД<br>НИЖЕ</span><span class="caption-mark">↗</span></div>
+      <div class="transport">
+        <div class="transport-buttons"><button id="go-start" class="transport-small" aria-label="В начало" type="button">|◀</button><button id="play" class="play-control" aria-label="Воспроизвести" type="button">▶</button><button id="go-end" class="transport-small" aria-label="В конец" type="button">▶|</button><span class="transport-divider"></span><span class="time-readout"><strong id="timecode">00:00:00</strong><small id="frame-readout">КАДР 000 / 1920</small></span></div>
+        <div class="transport-right"><button id="add-keyframe" type="button" class="keyframe-button"><span>◇</span> КЛЮЧ <kbd>K</kbd></button><button id="audio-toggle" type="button" class="transport-small" aria-label="Звук включён">◖))</button><label class="zoom-label">МАСШТАБ <select id="preview-zoom"><option value="fit">ПО ВЫСОТЕ</option><option value="1">100%</option><option value="0.75">75%</option></select></label></div>
       </div>
-      <div class="hero-edge" aria-hidden="true"><span>НЕКОТОРЫЕ АДРЕСА НУЖНО НАЙТИ ДВАЖДЫ</span><span>МОСКВА · НОЧЬ</span></div>
-    </section>
-
-    <section class="animatic" id="animatic" aria-labelledby="animatic-title">
-      <div class="animatic-intro">
-        <p class="eyebrow">ВИЗУАЛЬНЫЙ ПРОГОН <span class="slash">/</span> 9:16</p>
-        <h2 id="animatic-title">Кадры<br><i>движутся.</i></h2>
-        <p>Черновой аниматик из ключевых кадров. Семь сцен, восемьдесят секунд, никаких объяснений.</p>
-        <div class="animatic-actions">
-          <button class="animatic-play" id="animatic-play" type="button"><span id="animatic-play-icon">▶</span><span id="animatic-play-label">ПРОГНАТЬ 01:20</span></button>
-          <button class="animatic-step" id="animatic-prev" type="button" aria-label="Предыдущая сцена">←</button>
-          <button class="animatic-step" id="animatic-next" type="button" aria-label="Следующая сцена">→</button>
-          <button class="animatic-reset" id="animatic-reset" type="button" aria-label="Начать аниматик заново">↺</button>
+      <div class="timeline-dock">
+        <div class="timeline-head"><div class="timeline-title"><strong>ТАЙМЛАЙН</strong><span>СЦЕНА 01</span><button type="button" class="tiny-plus" id="add-track" title="Добавить дорожку">+</button></div><div class="timeline-tools"><label>ДЛИТЕЛЬНОСТЬ <input id="duration" type="number" min="10" max="120" step="1" value="80"><span>СЕК</span></label><label>FPS <select id="fps"><option>24</option><option>12</option><option>30</option></select></label><span class="snap-status">⌗ SNAP</span><button class="icon-button" type="button" aria-label="Настройки таймлайна">⚙</button></div></div>
+        <div class="timeline-body">
+          <div class="track-labels"><div class="time-gutter">ВРЕМЯ</div><button class="track-label cut-track-label" data-track="cuts" type="button"><i class="track-eye">◈</i><span>КАДРЫ · 7</span><b>···</b></button><button class="track-label" data-track="camera" type="button"><i class="track-eye">◉</i><span>КАМЕРА</span><b>···</b></button><button class="track-label selected" data-track="courier" type="button"><i class="track-eye">◉</i><span>КУРЬЕР · РИГ</span><b>···</b></button><button class="track-label" data-track="pose" type="button"><i class="track-eye">◉</i><span>ПОЗА</span><b>···</b></button><button class="track-label audio-track-label" data-track="audio" type="button"><i class="track-eye">◉</i><span>АУДИО</span><b>···</b></button></div>
+          <div class="timeline-scroller" id="timeline-scroller"><div class="timeline-inner" id="timeline-inner">
+            <div class="ruler-row" id="ruler-row"></div>
+            <div class="track-lane cut-lane" id="cut-lane"><span class="lane-name">SCENES</span></div>
+            <div class="track-lane camera-lane" id="camera-lane"><span class="lane-name">CAM</span></div>
+            <div class="track-lane courier-lane selected" id="courier-lane"><span class="lane-name">RIG</span></div>
+            <div class="track-lane pose-lane" id="pose-lane"><span class="lane-name">POSE</span></div>
+            <div class="track-lane audio-lane" id="audio-lane"><span class="audio-wave" id="audio-wave"></span><span class="audio-name" id="audio-name">ОЗВУЧКА НЕ ДОБАВЛЕНА</span></div>
+            <div class="playhead" id="playhead"><span></span></div>
+          </div></div>
         </div>
-        <div class="animatic-progress" role="progressbar" aria-label="Прогресс визуального прогона" aria-valuemin="0" aria-valuemax="80" aria-valuenow="0" id="animatic-progress"><span id="animatic-progress-fill"></span></div>
-        <div class="animatic-status"><span id="animatic-current">01 / ДОМОФОН</span><span id="animatic-time">00:00 / 01:20</span></div>
-        <p class="animatic-hint">ИЗОБРАЖЕНИЯ — КЛЮЧЕВЫЕ СТАТИЧНЫЕ КАДРЫ, НЕ ФИНАЛЬНОЕ ВИДЕО.</p>
       </div>
-      <div class="animatic-viewer">
-        <div class="animatic-frame" id="animatic-frame" data-scene="0">
-          <div class="animatic-frame-meta"><span id="animatic-shot">SHOT 01</span><span id="animatic-range">00:00—00:10</span></div>
-          <img id="animatic-image" src="assets/shot-01-intercom.jpg" alt="Курьер нажимает кнопку старого домофона ночью">
-          <div class="animatic-graphic" aria-hidden="true"><span class="graphic-bag"></span></div>
-          <div class="animatic-frame-caption"><span id="animatic-scene-name">Домофон</span><span id="animatic-frame-note">КЛИК. ТИШИНА.</span></div>
-          <span class="animatic-grain" aria-hidden="true"></span>
+    </section>
+
+    <aside class="inspector" aria-label="Параметры выбранного персонажа">
+      <div class="inspector-tabs"><button class="active" data-inspector="transform" type="button">ИНСПЕКТОР</button><button data-inspector="style" type="button">СТИЛЬ</button></div>
+      <section class="inspector-section" id="transform-panel">
+        <div class="inspector-object"><span class="object-icon">✳</span><span><strong>Курьер</strong><small>CHARACTER RIG · v01</small></span><button type="button" aria-label="Другие действия">···</button></div>
+        <div class="property-group"><div class="property-heading"><strong>ПОЛОЖЕНИЕ</strong><span>WORLD SPACE</span></div>
+          <label class="slider-row"><span>X</span><input id="prop-x" type="range" min="20" max="340" value="232"><output id="out-x">232</output></label>
+          <label class="slider-row"><span>Y</span><input id="prop-y" type="range" min="260" max="620" value="522"><output id="out-y">522</output></label>
+          <label class="slider-row"><span>МАСШТАБ</span><input id="prop-scale" type="range" min="55" max="115" value="78"><output id="out-scale">78%</output></label>
+          <label class="slider-row"><span>ПОВОРОТ</span><input id="prop-rotation" type="range" min="-25" max="25" value="0"><output id="out-rotation">0°</output></label>
         </div>
-        <div class="animatic-scene-caption" id="animatic-description">Кнопка нажата. Домофон молчит. Тяжёлая дверь поддаётся от руки.</div>
-      </div>
-    </section>
-
-    <section class="brief-strip" aria-label="О фильме">
-      <span class="section-label">01 / ЗАМЫСЕЛ</span>
-      <p>Пластиковый курьер поднимается не в тот подъезд. Чем выше он идёт, тем тяжелее становится не сумка, а сама мысль о доставке.</p>
-      <span class="strip-tag">ЧЁРНАЯ КОМЕДИЯ&nbsp; ↗</span>
-    </section>
-
-    <section class="sequence" id="storyboard">
-      <div class="sequence-head">
-        <div>
-          <p class="eyebrow">СЦЕНАРНЫЙ ПЛАН <span class="slash">/</span> 7 СЦЕН</p>
-          <h2>Подъём<br><i>не туда.</i></h2>
+        <div class="property-group"><div class="property-heading"><strong>РИГ И ДВИЖЕНИЕ</strong><span>4 КОНТРОЛЛЕРА</span></div>
+          <label class="select-row"><span>ПРЕСЕТ</span><select id="motion-select"><option value="idle">Покой / дыхание</option><option value="walk">Шаговый цикл</option><option value="turn">Поворот головы</option><option value="gesture">Жест рукой</option><option value="press">Нажатие</option></select></label>
+          <label class="slider-row"><span>ТЕМП</span><input id="motion-speed" type="range" min="30" max="180" value="100"><output id="out-speed">1.0×</output></label>
+          <div class="controller-grid"><button class="controller active" data-controller="head" type="button"><i>◉</i> ГОЛОВА</button><button class="controller" data-controller="arm-front" type="button"><i>⌁</i> РУКА</button><button class="controller" data-controller="leg-front" type="button"><i>⌁</i> НОГА</button><button class="controller" data-controller="bag" type="button"><i>▰</i> СУМКА</button></div>
         </div>
-        <div class="head-note">Ночная миниатюра<br>в семи остановках</div>
-      </div>
-
-      <div class="player" aria-label="Интерактивная раскадровка">
-        <button class="play-button" id="play-toggle" type="button" aria-label="Запустить просмотр раскадровки"><span id="play-icon">▶</span></button>
-        <div class="player-info"><span id="player-label">ПРОЙТИ ПО РАСКАДРОВКЕ</span><strong id="player-shot">00:00 <span>/</span> 01:20</strong></div>
-        <div class="player-track" id="player-track" role="progressbar" aria-label="Прогресс раскадровки" aria-valuemin="0" aria-valuemax="80" aria-valuenow="0"><span id="player-progress"></span></div>
-        <button class="reset-button" id="reset-play" type="button" aria-label="Сбросить таймер">↺</button>
-      </div>
-
-      <div class="shot-nav" role="tablist" aria-label="Выбрать сцену">
-        <button class="shot-tab active" type="button" role="tab" aria-selected="true" data-shot="0"><span>01</span><i>Домофон</i></button>
-        <button class="shot-tab" type="button" role="tab" aria-selected="false" data-shot="1"><span>02</span><i>Лестница</i></button>
-        <button class="shot-tab" type="button" role="tab" aria-selected="false" data-shot="2"><span>03</span><i>Осознание</i></button>
-        <button class="shot-tab" type="button" role="tab" aria-selected="false" data-shot="3"><span>04</span><i>Жёлтый куб</i></button>
-        <button class="shot-tab" type="button" role="tab" aria-selected="false" data-shot="4"><span>05</span><i>Вверх</i></button>
-        <button class="shot-tab" type="button" role="tab" aria-selected="false" data-shot="5"><span>06</span><i>Падение</i></button>
-        <button class="shot-tab" type="button" role="tab" aria-selected="false" data-shot="6"><span>07</span><i>Кто я?</i></button>
-      </div>
-
-      <div class="shot-list">
-        <article class="shot-card is-active" id="shot-0" data-start="0" data-end="10">
-          <div class="shot-visual scene-door"><div class="frame-top"><span>01 — POV</span><span>00:00—00:10</span></div><div class="door-number">18</div><div class="intercom"><i></i><i></i><i></i><b></b></div><div class="frame-note">КЛИК. ТИШИНА.</div></div>
-          <div class="shot-copy"><p class="shot-index">01 <span>·</span> 00—10 СЕК</p><h3>Домофон</h3><p>Ночь. Вид от первого лица: палец нажимает кнопку. Домофон молчит. Металлическая дверь поддаётся от руки.</p><p class="direction">Короткое затемнение. Возвращаемся за спиной курьера: затылок, плечо и огромная жёлтая сумка уходят внутрь.</p><blockquote>«Бля, это когда-нибудь закончится? А чё домофон не работает?»</blockquote><span class="voice-label">ВНУТРЕННИЙ МОНОЛОГ</span></div>
-        </article>
-
-        <article class="shot-card" id="shot-1" data-start="10" data-end="20">
-          <div class="shot-visual scene-stairs"><div class="frame-top"><span>02 — FOLLOW</span><span>00:10—00:20</span></div><div class="stair-lines"></div><div class="mini-figure"><b></b><i></i></div><div class="floor-numbers">16&nbsp; · &nbsp;17&nbsp; · &nbsp;18&nbsp; · &nbsp;19</div><div class="frame-note">ТЯЖЁЛЫЕ ШАГИ</div></div>
-          <div class="shot-copy"><p class="shot-index">02 <span>·</span> 10—20 СЕК</p><h3>Лестница</h3><p>Низкая камера чуть сбоку следует за ним. Бетонные пролёты, двери, номера этажей. Жёлтый груз подпрыгивает на каждом шаге.</p><p class="direction">Пластиковые подошвы гулко бьют по ступеням. Скрипят лямки рюкзака.</p><blockquote>«16, 17, 18, 19… Так, стоп, не тот подъезд.»</blockquote><span class="voice-label">ВНУТРЕННИЙ МОНОЛОГ</span></div>
-        </article>
-
-        <article class="shot-card" id="shot-2" data-start="20" data-end="30">
-          <div class="shot-visual scene-landing"><div class="frame-top"><span>03 — HOLD</span><span>00:20—00:30</span></div><div class="landing-lines"></div><div class="mini-figure still"><b></b><i></i></div><div class="pause-mark">…</div><div class="frame-note">ДОЛГАЯ ПАУЗА</div></div>
-          <div class="shot-copy"><p class="shot-index">03 <span>·</span> 20—30 СЕК</p><h3>Осознание</h3><p>На площадке он замирает. Оглядывается. Медленно поворачивает голову к лестнице внизу.</p><p class="direction">Неловкая пауза. Плечи опускаются. Никакой музыки и подсказок — только гул подъезда.</p><blockquote>«Зачем поднимался только? Калории тратил. Калории…»</blockquote><span class="voice-label">ВНУТРЕННИЙ МОНОЛОГ</span></div>
-        </article>
-
-        <article class="shot-card" id="shot-3" data-start="30" data-end="42">
-          <div class="shot-visual scene-cube"><div class="frame-top"><span>04 — MACRO</span><span>00:30—00:42</span></div><div class="cube"></div><div class="cube-shadow"></div><div class="frame-note">ЖЁЛТЫЙ КУБ</div></div>
-          <div class="shot-copy"><p class="shot-index">04 <span>·</span> 30—42 СЕК</p><h3>Жёлтый куб</h3><p>Макро: сумка. Взгляд вниз. Рука касается ткани. Усталый пластиковый профиль — и снова сумка, огромная и абсурдно тяжёлая.</p><p class="direction">Короткие склейки между лицом и грузом. Без комедийного акцента: кадр остаётся серьёзным.</p><blockquote>«Покажи мне калорию! Как я устал от этих подъездов. Сумка эта. Ебаный жёлтый куб с чужой едой. Блять…»</blockquote><span class="voice-label">ВНУТРЕННИЙ МОНОЛОГ</span></div>
-        </article>
-
-        <article class="shot-card" id="shot-4" data-start="42" data-end="54">
-          <div class="shot-visual scene-up"><div class="frame-top"><span>05 — LOW ANGLE</span><span>00:42—00:54</span></div><div class="vanishing-stairs"></div><div class="hand-line"></div><div class="frame-note">ВЫШЕ. ЕЩЁ ВЫШЕ.</div></div>
-          <div class="shot-copy"><p class="shot-index">05 <span>·</span> 42—54 СЕК</p><h3>Вверх</h3><p>Камера смотрит снизу вдоль бесконечного лестничного пролёта. Курьер поднимает взгляд. Архитектура давит.</p><p class="direction">Свободная рука взлетает в раздражённом жесте. Медленный наклон камеры вслед за лестницей.</p><blockquote>«Кто эти лестницы конструировал?! Ааа…»</blockquote><span class="voice-label">ВНУТРЕННИЙ МОНОЛОГ</span></div>
-        </article>
-
-        <article class="shot-card" id="shot-5" data-start="54" data-end="68">
-          <div class="shot-visual scene-impact"><div class="frame-top"><span>06 — CUT</span><span>00:54—01:08</span></div><div class="impact-ring"></div><div class="bag-on-floor"></div><div class="off-frame"></div><div class="frame-note">УДАР. ТИШИНА.</div></div>
-          <div class="shot-copy"><p class="shot-index">06 <span>·</span> 54—68 СЕК</p><h3>Падение</h3><p>Резкая склейка. Тяжёлый удар о бетон — звук тонет в лестничной клетке. Самого падения мы не видим.</p><p class="direction">Статичный кадр площадки. Жёлтая сумка лежит на полу. Рядом — неподвижная фигура, почти вся вне кадра. Камера медленно приближается.</p><div class="silence"><span>ЗВУК</span><strong>ПОЛНАЯ ТИШИНА</strong></div></div>
-        </article>
-
-        <article class="shot-card final-shot" id="shot-6" data-start="68" data-end="80">
-          <div class="shot-visual scene-reveal"><div class="frame-top"><span>07 — TOP SHOT</span><span>01:08—01:20</span></div><div class="reveal-floor"></div><div class="reveal-bag"></div><div class="reveal-body"><i></i></div><div class="frame-note">НЕ ОБЪЯСНЯТЬ</div></div>
-          <div class="shot-copy"><p class="shot-index">07 <span>·</span> 68—80 СЕК</p><h3>Кто я?</h3><p>Сверху: неподвижное тело рядом с жёлтой сумкой. Видим затылок человека. Курьер стоит прямо над ним.</p><p class="direction">Медленное движение камеры. Без музыки, без ответа. Держать кадр. Чёрный экран.</p><blockquote>«Кто-то оставил в нём курьерскую термосумку с моим именем. Кто-то лежит возле неё. Я ровно над его затылком. А кто я?!»</blockquote><span class="voice-label">ВНУТРЕННИЙ МОНОЛОГ · ЧЁРНЫЙ ЭКРАН</span></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="sound-section">
-      <div class="sound-heading"><p class="eyebrow">ЗВУКОВОЙ ЛАНДШАФТ</p><h2>Слышно,<br><i>как пусто.</i></h2></div>
-      <div class="sound-list">
-        <div><span>01</span><p>Тихая ночная улица</p><b>АМБИЕНС</b></div>
-        <div><span>02</span><p>Кнопка домофона. Тяжёлая металлическая дверь.</p><b>БЛИЗКО</b></div>
-        <div><span>03</span><p>Гул подъезда. Пластиковые шаги по бетону. Скрип лямок.</p><b>РЕВЕРБЕРАЦИЯ</b></div>
-        <div><span>04</span><p>Глухой удар. Потом — ничего.</p><b>ЗАТИХАНИЕ</b></div>
-      </div>
-      <p class="sound-footnote">ГОЛОС — МУЖСКОЙ, РУССКИЙ. ИНТИМНЫЙ И УСТАЛЫЙ. НЕ РЕПЛИКА ПЕРСОНАЖА, А МЫСЛЬ, НАЛОЖЕННАЯ НА КАДР.</p>
-      <div class="voiceover-player">
-        <div><span class="eyebrow">ЧЕРНОВАЯ ОЗВУЧКА</span><strong>Внутренний монолог</strong></div>
-        <audio controls preload="metadata" src="audio/russian-voiceover.mp3" aria-label="Русская мужская озвучка внутреннего монолога"></audio>
-      </div>
-    </section>
-
-    <footer class="end-card"><p class="eyebrow">КОНЕЦ КАДРА</p><p>А кто я?</p><span>ДРУЖБЫ, 18, КВ. 14 <b>·</b> СТОП-КАДР</span></footer>
+        <div class="property-group camera-group"><div class="property-heading"><strong>КАМЕРА</strong><button id="camera-reset" type="button">СБРОСИТЬ</button></div>
+          <label class="slider-row"><span>X</span><input id="camera-x" type="range" min="-360" max="360" value="0"><output id="out-camera-x">0</output></label>
+          <label class="slider-row"><span>Y</span><input id="camera-y" type="range" min="-640" max="640" value="0"><output id="out-camera-y">0</output></label>
+          <label class="slider-row"><span>ZOOM</span><input id="camera-zoom" type="range" min="80" max="160" value="100"><output id="out-camera-zoom">100%</output></label>
+        </div>
+        <div class="inspector-foot"><span class="autosave-icon">✓</span> ИЗМЕНЕНИЯ ПИШУТСЯ В КЛЮЧИ</div>
+      </section>
+      <section class="inspector-section style-panel hidden" id="style-panel">
+        <div class="property-group"><div class="property-heading"><strong>ВИЗУАЛЬНЫЙ ЯЗЫК</strong><span>ORIGINAL CUT-OUT</span></div><p class="style-note">Плоские раздельные формы, сдвинутый ксероксный контур, бумажное зерно. Своя графическая система — без копирования существующих сериалов.</p>
+          <label class="slider-row"><span>КОНТУР</span><input id="outline-width" type="range" min="2" max="8" value="4"><output id="out-outline">4 px</output></label>
+          <label class="slider-row"><span>ЗЕРНО</span><input id="grain-amount" type="range" min="0" max="30" value="13"><output id="out-grain">13%</output></label>
+        </div>
+        <div class="property-group"><div class="property-heading"><strong>ПАЛИТРА</strong><span>5 ЦВЕТОВ</span></div><div class="swatches"><button type="button" title="Асфальт" style="--swatch:#222722"></button><button type="button" title="Бетон" style="--swatch:#9c9685"></button><button type="button" title="Серебро" style="--swatch:#c4c4b9"></button><button type="button" title="Терможёлтый" style="--swatch:#f1d21a"></button><button type="button" title="Бумага" style="--swatch:#e6e0cf"></button></div></div>
+        <div class="property-group"><div class="property-heading"><strong>КОМПОЗИЦИЯ</strong></div><p class="style-note">Формат 9:16 · безопасная область включена · камера управляется ключами.</p><button class="outline-action" id="guides-style" type="button">НАПРАВЛЯЮЩИЕ: ВКЛ</button></div>
+      </section>
+    </aside>
   </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="export-progress hidden" id="export-progress"><span>РЕНДЕР СЦЕНЫ</span><div><i id="export-progress-fill"></i></div><strong id="export-percent">0%</strong><button id="cancel-export" type="button">ОТМЕНА</button></div>
+  <audio id="audio-preview" preload="metadata"></audio>
   <script src="script.js"></script>
-  <script src="animatic.js"></script>
 </body>
 </html>

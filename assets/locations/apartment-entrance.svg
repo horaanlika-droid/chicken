@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 640" role="img" aria-label="Подъезд, ночной интерьер">
+  <g id="environment">
+  <defs>
+    <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#4e594f"/><stop offset=".7" stop-color="#303933"/><stop offset="1" stop-color="#202521"/></linearGradient>
+    <linearGradient id="floor" x2="0" y2="1"><stop stop-color="#5e5a4b"/><stop offset="1" stop-color="#292a25"/></linearGradient>
+    <radialGradient id="lamp-glow"><stop stop-color="#f4dfa0" stop-opacity=".55"/><stop offset="1" stop-color="#f4dfa0" stop-opacity="0"/></radialGradient>
+  </defs>
+                <rect width="360" height="640" fill="url(#wall)"/>
+                <path d="M0 490H360V640H0Z" fill="url(#floor)"/>
+                <path d="M0 492H360" stroke="#171a17" stroke-width="5"/>
+                <path d="M0 0H360V76H0Z" fill="#171b18" opacity=".78"/>
+                <path d="M11 0V492M350 0V492" stroke="#171b18" stroke-width="8" opacity=".4"/>
+                <g id="doorway">
+                  <path d="M22 193H168V492H22Z" fill="#232a26" stroke="#111513" stroke-width="8"/>
+                  <g id="doorwing" transform="rotate(0 32 203)">
+                    <path d="M32 203H158V482H32Z" fill="#3c443e" stroke="#788071" stroke-width="2"/>
+                    <path d="M45 218H145V482H45Z" fill="#353d37" stroke="#222822" stroke-width="5"/>
+                    <rect x="120" y="333" width="9" height="45" rx="4" fill="#b5a787"/><circle cx="124" cy="400" r="4" fill="#c4b591"/>
+                    <text x="62" y="249" fill="#d3c9a9" font-size="20" font-family="monospace" opacity=".75">18</text>
+                  </g>
+                  <g id="intercom"><rect x="8" y="353" width="31" height="77" rx="3" fill="#858171" stroke="#191d1a" stroke-width="4"/><rect x="13" y="359" width="21" height="65" fill="#42463d"/><circle cx="23.5" cy="375" r="3" fill="#d6c79b"/><circle cx="18" cy="388" r="2.2" fill="#c6b995"/><circle cx="28" cy="388" r="2.2" fill="#c6b995"/><circle cx="18" cy="398" r="2.2" fill="#c6b995"/><circle cx="28" cy="398" r="2.2" fill="#c6b995"/><rect x="15" y="410" width="17" height="5" fill="#181c19"/></g>
+                </g>
+                <g id="stairwell" opacity=".98">
+                  <path d="M180 490L180 430H203V408H226V386H249V364H272V342H295V320H318V298H360V490Z" fill="#41473f" stroke="#1a1f1b" stroke-width="4"/>
+                  <path d="M180 430H203V408H226V386H249V364H272V342H295V320H318V298H360" fill="none" stroke="#a39a7f" stroke-width="4"/>
+                  <path d="M194 429V488M217 407V488M240 385V488M263 363V488M286 341V488M309 319V488M332 297V488" stroke="#252b26" stroke-width="3"/>
+                  <path d="M180 424L205 403L228 381L251 359L274 337L297 315L320 293L348 278" fill="none" stroke="#867c63" stroke-width="5"/>
+                  <path d="M184 435L210 412M207 412L233 390M230 390L256 368M253 368L279 346M276 346L302 324M299 324L325 302" stroke="#bdaf88" stroke-width="2" opacity=".65"/>
+                </g>
+                <g id="light-fixture"><ellipse cx="280" cy="112" rx="100" ry="95" fill="url(#lamp-glow)"/><rect x="267" y="35" width="26" height="8" rx="4" fill="#191d1a"/><path d="M270 43H290V59Q290 67 280 67Q270 67 270 59Z" fill="#ead8a7" stroke="#796c4e" stroke-width="2"/><circle cx="280" cy="56" r="18" fill="#f4dfa0" opacity=".18"/></g>
+                <path d="M7 130L26 117L31 124M322 184L341 169M1 283L18 270M205 121L228 116" fill="none" stroke="#b8ac8d" stroke-opacity=".22" stroke-width="2"/>
+                <g id="pov-hand" opacity="0" transform="translate(0 26)" stroke="#171a17" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+                  <path d="M192 640L126 583L77 513L42 449Q38 437 50 430L73 420Q87 420 96 436L151 535L218 597Z" fill="#202522"/>
+                  <path d="M43 442L76 425L94 449L59 466Z" fill="#c1c0b2"/><path d="M58 452L81 440" stroke="#f1d21a" stroke-width="5"/>
+                  <path d="M28 415Q24 405 31 399Q39 395 47 402L61 414L54 428L35 431Z" fill="#272c28"/>
+                  <path d="M31 407Q24 400 21 390L20 384Q22 379 27 381L32 388L39 402" fill="#313630"/>
+                  <path d="M38 402L35 394Q34 389 39 388Q44 389 46 399L49 410" fill="#313630"/>
+                  <path d="M46 403L46 396Q47 391 52 393L57 406L57 415" fill="#313630"/>
+                  <path d="M35 422Q28 426 25 421Q22 417 27 413L34 409" fill="#343a34"/>
+                  <circle cx="39" cy="414" r="5" fill="#161916" stroke="#aaa48f" stroke-width="2"/>
+                </g>
+  </g>
+</svg>

@@ -1,0 +1,45 @@
+{
+  "version": "1.0",
+  "series": "CUTOUT CINEMA / Курьерские истории",
+  "title": "ДРУЖБЫ, 18, КВ. 14",
+  "episode": 1,
+  "duration": 80,
+  "fps": 24,
+  "motionSpeed": 1,
+  "location": "entrance",
+  "style": { "outline": 4, "grain": 13, "accent": "#f1d21a" },
+  "audioCues": [
+    { "id": "vo01", "file": "audio/episode-01/vo-01-intercom.mp3", "shot": 0, "offset": 0 },
+    { "id": "vo02", "file": "audio/episode-01/vo-02-stairs.mp3", "shot": 1, "offset": 0 },
+    { "id": "vo03", "file": "audio/episode-01/vo-03-realization.mp3", "shot": 2, "offset": 0 },
+    { "id": "vo04", "file": "audio/episode-01/vo-04-bag.mp3", "shot": 3, "offset": 0 },
+    { "id": "vo05", "file": "audio/episode-01/vo-05-stairs.mp3", "shot": 4, "offset": 0 },
+    { "id": "vo07", "file": "audio/episode-01/vo-07-reveal.mp3", "shot": 6, "offset": 0 }
+  ],
+  "shots": [
+    { "id": "S01", "title": "Домофон", "start": 0, "end": 10, "location": "entrance", "motion": "press", "showCourier": false, "showPovHand": true, "description": "POV: жмёт кнопку. Домофон молчит; дверь открывается от руки.", "voice": "Бля, это когда-нибудь закончится? А чё домофон не работает?" },
+    { "id": "S02", "title": "Лестница", "start": 10, "end": 20, "location": "stairs", "motion": "walk", "showCourier": true, "showPovHand": false, "description": "Следуем сзади: подъём, прыгающий жёлтый рюкзак, номера этажей.", "voice": "Шестнадцать, семнадцать, восемнадцать, девятнадцать… Так, стоп, не тот подъезд." },
+    { "id": "S03", "title": "Осознание", "start": 20, "end": 30, "location": "stairs", "motion": "turn", "showCourier": true, "showPovHand": false, "description": "Остановка на площадке; голова медленно поворачивается вниз.", "voice": "Зачем поднимался только? Калории тратил. Калории…" },
+    { "id": "S04", "title": "Жёлтый куб", "start": 30, "end": 42, "location": "stairs", "motion": "idle", "showCourier": true, "showPovHand": false, "description": "Макрокадр термосумки, ладонь касается куба; усталый профиль.", "voice": "Покажи мне калорию! Как я устал от этих подъездов. Сумка эта. Ебаный жёлтый куб с чужой едой. Блять…" },
+    { "id": "S05", "title": "Вверх", "start": 42, "end": 54, "location": "stairs", "motion": "gesture", "showCourier": true, "showPovHand": false, "description": "Низкий ракурс на бесконечную лестницу; свободная рука в жесте.", "voice": "Кто эти лестницы конструировал?! Ааа…" },
+    { "id": "S06", "title": "Падение", "start": 54, "end": 68, "location": "impact", "motion": "idle", "showCourier": false, "showPovHand": false, "description": "Удар за кадром. Только жёлтая сумка и почти обрезанная неподвижная фигура.", "voice": "" },
+    { "id": "S07", "title": "Кто я?", "start": 68, "end": 80, "location": "reveal", "motion": "idle", "showCourier": false, "showPovHand": false, "description": "Вид сверху: тело, сумка и ноги курьера у затылка. Чёрный экран в конце.", "voice": "Кто-то оставил в нём курьерскую термосумку с моим именем. Кто-то лежит возле неё. Я ровно над его затылком. А кто я?!" }
+  ],
+  "keyframes": [
+    { "t": 0, "x": 220, "y": 520, "scale": 0.78, "rotation": 0, "cx": 0, "cy": 0, "zoom": 1, "motion": "press" },
+    { "t": 3, "x": 220, "y": 520, "scale": 0.78, "rotation": 0, "cx": 0, "cy": 0, "zoom": 1, "motion": "press" },
+    { "t": 7, "x": 220, "y": 520, "scale": 0.78, "rotation": 0, "cx": 0, "cy": 0, "zoom": 1, "motion": "press" },
+    { "t": 10, "x": 220, "y": 515, "scale": 0.76, "rotation": 0, "cx": 0, "cy": 0, "zoom": 1, "motion": "walk" },
+    { "t": 15, "x": 246, "y": 482, "scale": 0.74, "rotation": -1, "cx": 0, "cy": 0, "zoom": 1, "motion": "walk" },
+    { "t": 20, "x": 257, "y": 446, "scale": 0.72, "rotation": 0, "cx": 0, "cy": 0, "zoom": 1, "motion": "turn" },
+    { "t": 25, "x": 257, "y": 446, "scale": 0.72, "rotation": 0, "cx": 0, "cy": 0, "zoom": 1, "motion": "turn" },
+    { "t": 30, "x": 255, "y": 446, "scale": 0.92, "rotation": 0, "cx": -230, "cy": 170, "zoom": 1.8, "motion": "idle" },
+    { "t": 36, "x": 255, "y": 446, "scale": 0.92, "rotation": 0, "cx": -245, "cy": 170, "zoom": 2.0, "motion": "idle" },
+    { "t": 42, "x": 255, "y": 440, "scale": 0.72, "rotation": 0, "cx": 0, "cy": 0, "zoom": 1, "motion": "gesture" },
+    { "t": 48, "x": 255, "y": 440, "scale": 0.72, "rotation": 0, "cx": -8, "cy": 36, "zoom": 1.08, "motion": "gesture" },
+    { "t": 54, "x": 255, "y": 440, "scale": 0.72, "rotation": 0, "cx": 0, "cy": 0, "zoom": 1, "motion": "idle" },
+    { "t": 68, "x": 255, "y": 440, "scale": 0.72, "rotation": 0, "cx": 0, "cy": 0, "zoom": 1, "motion": "idle" },
+    { "t": 79, "x": 255, "y": 440, "scale": 0.72, "rotation": 0, "cx": 8, "cy": 4, "zoom": 1.1, "motion": "idle" },
+    { "t": 80, "x": 255, "y": 440, "scale": 0.72, "rotation": 0, "cx": 8, "cy": 4, "zoom": 1.1, "motion": "idle" }
+  ]
+}

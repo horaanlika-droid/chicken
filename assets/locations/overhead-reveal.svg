@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 640" role="img" aria-label="Вид сверху на курьерскую сумку и неподвижную фигуру">
+  <g id="environment">
+    <defs>
+      <linearGradient id="reveal-floor" x2="0" y2="1"><stop stop-color="#72705e"/><stop offset=".48" stop-color="#555747"/><stop offset="1" stop-color="#33372f"/></linearGradient>
+      <radialGradient id="reveal-light"><stop stop-color="#e8d6a7" stop-opacity=".28"/><stop offset="1" stop-color="#e8d6a7" stop-opacity="0"/></radialGradient>
+      <filter id="body-shadow" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur stdDeviation="7"/></filter>
+    </defs>
+    <rect width="360" height="640" fill="url(#reveal-floor)"/>
+    <ellipse cx="180" cy="335" rx="195" ry="290" fill="url(#reveal-light)"/>
+    <g id="floor-markings" fill="none" stroke="#222820" stroke-opacity=".38">
+      <path d="M-20 120L380 105M-20 230L380 213M-20 372L380 350M-20 514L380 491" stroke-width="3"/>
+      <path d="M45 0L61 640M182 0L197 640M315 0L327 640" stroke-width="2"/>
+      <path d="M0 302L50 286L72 296M287 404L360 378M18 578L86 551M265 80L330 58" stroke="#c4b995" stroke-opacity=".28" stroke-width="3"/>
+    </g>
+    <g id="delivery-bag-on-floor" transform="translate(38 337) rotate(-13 47 43)" stroke="#1a1c18" stroke-width="5" stroke-linejoin="round">
+      <path d="M8 8Q12 0 22 0H91Q102 0 104 11L107 78Q108 89 97 91L12 96Q2 97 1 86L0 18Q0 10 8 8Z" fill="#f1d21a"/>
+      <path d="M5 22L105 14M5 70L107 61" stroke="#b69b0c" stroke-width="3"/>
+      <path d="M18 4L21 93M87 1L92 90" stroke="#252822" stroke-width="6"/>
+      <path d="M0 19L105 11M3 74L107 63" stroke="#252822" stroke-width="6"/>
+      <path d="M31 1Q31-16 52-16Q72-16 73 0" fill="none" stroke="#242722" stroke-width="5"/>
+    </g>
+    <ellipse cx="226" cy="421" rx="108" ry="57" fill="#121512" opacity=".38" filter="url(#body-shadow)"/>
+    <g id="motionless-figure" transform="rotate(-27 227 408)" stroke="#181b18" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+      <!-- back of a capped head, attached to the fully clothed body; face stays hidden -->
+      <ellipse cx="225" cy="352" rx="22" ry="27" fill="#c9bda5"/>
+      <path d="M203 352Q202 326 225 323Q247 325 249 350L240 354L207 359Z" fill="#202522"/>
+      <path d="M207 345Q227 335 246 343" fill="none" stroke="#52584d" stroke-width="3"/>
+      <path d="M186 455Q171 446 177 427L195 362Q207 342 239 350L277 369Q292 379 285 400L260 468Q252 487 232 482Z" fill="#252b27"/>
+      <path d="M196 368L229 378L262 392" fill="none" stroke="#b9baad" stroke-width="9"/>
+      <path d="M197 387L269 407M186 435L250 458" fill="none" stroke="#141815" stroke-width="8"/>
+      <path d="M182 414Q157 402 150 379L137 345Q138 331 150 329Q160 329 168 346L190 375" fill="#202522"/>
+      <circle cx="148" cy="340" r="10" fill="#151916" stroke="#a7a48e" stroke-width="3"/>
+      <path d="M258 459Q282 467 298 486L324 526Q329 539 317 545Q307 550 298 539L270 509L246 489" fill="#252a26"/>
+      <circle cx="270" cy="476" r="10" fill="#171a17" stroke="#a7a48e" stroke-width="3"/>
+      <path d="M209 459L183 506L163 552Q157 565 168 570Q179 575 187 561L219 520L239 478" fill="#303630"/>
+      <path d="M250 458L275 493L304 535Q314 548 325 540Q334 531 324 518L297 474L276 444" fill="#252a26"/>
+      <path d="M167 554L153 567L166 581L183 567M306 533L299 549L317 558L330 544" fill="#d5d1c2" stroke-width="4"/>
+    </g>
+    <g id="standing-courier-feet" stroke="#171a17" stroke-width="5" stroke-linejoin="round">
+      <path d="M111 -12H153L163 38Q162 56 146 58L99 54Q85 51 88 37Z" fill="#202522"/>
+      <path d="M209 -12H250L263 36Q264 53 247 57L202 55Q188 52 191 36Z" fill="#202522"/>
+      <path d="M96 37L155 42L159 54L94 53ZM199 38L255 40L260 53L197 53Z" fill="#e2dfd3"/>
+      <path d="M103 44L151 46M204 45L255 45" stroke="#252925" stroke-width="3"/>
+      <path d="M120 -2L135 31M216 1L232 32" stroke="#aeb0a4" stroke-width="7"/>
+      <path d="M122 3L137 28M218 5L235 30" stroke="#1b1e1b" stroke-width="3"/>
+    </g>
+    <path d="M0 624H360" stroke="#1d211d" stroke-width="6" opacity=".6"/>
+  </g>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 640" role="img" aria-label="Лестничный пролёт подъезда">
+  <g id="environment">
+  <defs>
+    <linearGradient id="stairs-wall" x2="0" y2="1"><stop stop-color="#596157"/><stop offset=".62" stop-color="#373e37"/><stop offset="1" stop-color="#202521"/></linearGradient>
+    <linearGradient id="stairs-floor" x2="0" y2="1"><stop stop-color="#625e50"/><stop offset="1" stop-color="#272923"/></linearGradient>
+    <radialGradient id="stairs-lamp"><stop stop-color="#f1d99b" stop-opacity=".5"/><stop offset="1" stop-color="#f1d99b" stop-opacity="0"/></radialGradient>
+  </defs>
+    <g id="layer-back-wall"><rect width="360" height="640" fill="url(#stairs-wall)"/><path d="M0 0H360V72H0Z" fill="#181c19" opacity=".72"/><path d="M14 0V500M347 0V500" stroke="#1a1e1b" stroke-width="7" opacity=".55"/><path d="M22 150L47 134L54 141M308 179L339 153M4 273L23 258M92 100L112 94" fill="none" stroke="#c1b698" stroke-opacity=".22" stroke-width="2"/></g>
+    <g id="layer-stair-flight">
+      <path d="M-15 500H26V476H53V452H80V428H107V404H134V380H161V356H188V332H215V308H242V284H269V260H296V236H323V212H376V500Z" fill="#3d443d" stroke="#1b201c" stroke-width="5"/>
+      <path d="M-15 500H26V476H53V452H80V428H107V404H134V380H161V356H188V332H215V308H242V284H269V260H296V236H323V212H376" fill="none" stroke="#9b947c" stroke-width="4"/>
+      <path d="M22 476V497M49 452V497M76 428V497M103 404V497M130 380V497M157 356V497M184 332V497M211 308V497M238 284V497M265 260V497M292 236V497M319 212V497" stroke="#202520" stroke-width="4"/>
+      <path d="M-7 489L30 463L57 439L84 415L111 391L138 367L165 343L192 319L219 295L246 271L273 247L300 223L329 199L355 184" fill="none" stroke="#a99d7b" stroke-width="6"/>
+      <path d="M0 499H360V640H0Z" fill="url(#stairs-floor)"/><path d="M0 501H360" stroke="#161a17" stroke-width="5"/>
+    </g>
+    <g id="layer-railings" fill="none" stroke-linecap="round">
+      <path d="M22 488L71 445L120 401L169 357L218 313L267 269L316 225L357 202" stroke="#1d221e" stroke-width="10"/>
+      <path d="M22 482L71 439L120 395L169 351L218 307L267 263L316 219L357 196" stroke="#8b826b" stroke-width="3"/>
+      <path d="M42 465V509M78 433V477M114 401V445M150 369V413M186 337V381M222 305V349M258 273V317M294 241V285M330 209V253" stroke="#272d28" stroke-width="5"/>
+      <path d="M42 465V509M78 433V477M114 401V445M150 369V413M186 337V381M222 305V349M258 273V317M294 241V285M330 209V253" stroke="#7f7967" stroke-width="1.5"/>
+    </g>
+    <g id="layer-light"><ellipse cx="283" cy="106" rx="91" ry="83" fill="url(#stairs-lamp)"/><rect x="271" y="38" width="24" height="8" rx="4" fill="#181c19"/><path d="M274 46H292V59Q292 66 283 66Q274 66 274 59Z" fill="#ead8a7" stroke="#71684f" stroke-width="2"/><circle cx="283" cy="56" r="17" fill="#f2dfa9" opacity=".16"/></g>
+    <g id="layer-landing-door"><path d="M20 244H112V493H20Z" fill="#232a26" stroke="#151916" stroke-width="7"/><path d="M28 252H104V486H28Z" fill="#343d36" stroke="#8b8978" stroke-width="2"/><text x="51" y="282" fill="#d0c6aa" font-size="17" font-family="monospace" opacity=".7">18</text><rect x="88" y="348" width="7" height="38" rx="3" fill="#b9ac8c"/></g>
+  </g>
+</svg>
