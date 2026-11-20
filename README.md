@@ -19,7 +19,7 @@ Open `http://localhost:4173`. No build step or runtime package dependencies. The
 - **Timeline:** 10–120 seconds, 12/24/30 fps, pose/camera keyframes, interpolation, scrubbing, playback and keyboard shortcuts (Space, K, ←/→).
 - **Project files:** autosave in browser storage; export/import a JSON scene description.
 - **Audio:** import a local audio file onto the audio lane, preview it against the timeline and include it in export when the browser supports audio capture.
-- **Render:** export the deterministic stage as 720×1280 WebM using browser MediaRecorder. Convert to MP4 with `scripts/convert_mp4.sh output.webm`; this requires an FFmpeg build with H.264/AAC encoders. No generated video frames are used.
+- **Render:** `renders/episode-01.mp4` is the finished 80-second, 720×1280 H.264/AAC episode. Re-render the project with `node scripts/render_episode.js`; this offline renderer uses the authored SVG locations, rig keyframes and shot-timed VO. Install `sharp` and `@xmldom/xmldom` plus FFmpeg with `libx264`/AAC support first. The browser can also export a WebM preview.
 - **Style tab:** original cut-out rules, outline and paper-grain controls, palette swatches and composition guides.
 
 **Series 01:** “ДРУЖБЫ, 18, КВ. 14” — 80 seconds across seven cuts. POV intercom press, stair climb, wrong-entrance realization, the yellow cube, a withheld impact and an ambiguous overhead reveal. The voice-over is segmented by shot; the impact beat is silent. All character and camera motion is authored from reusable vector assets and saved keyframes.
