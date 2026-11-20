@@ -8,6 +8,7 @@
   <title>ДРУЖБЫ, 18, КВ. 14 — короткий метр</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="voiceover.css">
+  <link rel="stylesheet" href="animatic.css">
 </head>
 <body>
   <header class="topbar">
@@ -34,6 +35,33 @@
         <div class="art-caption"><span>ОДИН ПОДЪЕЗД<br>НИЖЕ</span><span class="caption-mark">↗</span></div>
       </div>
       <div class="hero-edge" aria-hidden="true"><span>НЕКОТОРЫЕ АДРЕСА НУЖНО НАЙТИ ДВАЖДЫ</span><span>МОСКВА · НОЧЬ</span></div>
+    </section>
+
+    <section class="animatic" id="animatic" aria-labelledby="animatic-title">
+      <div class="animatic-intro">
+        <p class="eyebrow">ВИЗУАЛЬНЫЙ ПРОГОН <span class="slash">/</span> 9:16</p>
+        <h2 id="animatic-title">Кадры<br><i>движутся.</i></h2>
+        <p>Черновой аниматик из ключевых кадров. Семь сцен, восемьдесят секунд, никаких объяснений.</p>
+        <div class="animatic-actions">
+          <button class="animatic-play" id="animatic-play" type="button"><span id="animatic-play-icon">▶</span><span id="animatic-play-label">ПРОГНАТЬ 01:20</span></button>
+          <button class="animatic-step" id="animatic-prev" type="button" aria-label="Предыдущая сцена">←</button>
+          <button class="animatic-step" id="animatic-next" type="button" aria-label="Следующая сцена">→</button>
+          <button class="animatic-reset" id="animatic-reset" type="button" aria-label="Начать аниматик заново">↺</button>
+        </div>
+        <div class="animatic-progress" role="progressbar" aria-label="Прогресс визуального прогона" aria-valuemin="0" aria-valuemax="80" aria-valuenow="0" id="animatic-progress"><span id="animatic-progress-fill"></span></div>
+        <div class="animatic-status"><span id="animatic-current">01 / ДОМОФОН</span><span id="animatic-time">00:00 / 01:20</span></div>
+        <p class="animatic-hint">ИЗОБРАЖЕНИЯ — КЛЮЧЕВЫЕ СТАТИЧНЫЕ КАДРЫ, НЕ ФИНАЛЬНОЕ ВИДЕО.</p>
+      </div>
+      <div class="animatic-viewer">
+        <div class="animatic-frame" id="animatic-frame" data-scene="0">
+          <div class="animatic-frame-meta"><span id="animatic-shot">SHOT 01</span><span id="animatic-range">00:00—00:10</span></div>
+          <img id="animatic-image" src="assets/shot-01-intercom.jpg" alt="Курьер нажимает кнопку старого домофона ночью">
+          <div class="animatic-graphic" aria-hidden="true"><span class="graphic-bag"></span></div>
+          <div class="animatic-frame-caption"><span id="animatic-scene-name">Домофон</span><span id="animatic-frame-note">КЛИК. ТИШИНА.</span></div>
+          <span class="animatic-grain" aria-hidden="true"></span>
+        </div>
+        <div class="animatic-scene-caption" id="animatic-description">Кнопка нажата. Домофон молчит. Тяжёлая дверь поддаётся от руки.</div>
+      </div>
     </section>
 
     <section class="brief-strip" aria-label="О фильме">
@@ -124,5 +152,6 @@
     <footer class="end-card"><p class="eyebrow">КОНЕЦ КАДРА</p><p>А кто я?</p><span>ДРУЖБЫ, 18, КВ. 14 <b>·</b> СТОП-КАДР</span></footer>
   </main>
   <script src="script.js"></script>
+  <script src="animatic.js"></script>
 </body>
 </html>
